@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<title>Order Details</title>
+	
+	<style>
+	.dollars:before {
+ 		 content: "$";
+		}
+	</style>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Order Details</h3>
+	<hr>
+
+	<h4>Rewards Earned</h4>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+					<th>Month Purchased</th>
+					<th>Rewards</th>
+			</tr>	
+		</thead>
+		<tbody>
+				<th:block th:each="month, rew : ${dates} ">
+						<tr>
+						<td th:text="${#dates.monthName(month)}"/>
+						<td th:text="${rewards[rew.index]}"/>	
+						</tr>
+				</th:block>
+		</tbody>
+	</table>
+	<hr>
+	
+	<h4>Total rewards earned : <th:block th:text= "${totalrewards}"> </th:block> </h4>
+		
+	<hr>
+	<h4>Transaction Details</h4>		
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Product Name</th>
+				<th>Product Description</th>
+				<th>Quantity</th>
+				<th>Product price</th>
+				<th>Total price</th>
+				<th>Date of Order</th>	
+			</tr>
+		</thead>
+		<tbody>
+		<th:block th:each="temp,itr: ${orders}">
+			<tr>
+				<td th:text="${temp.product.productname}" />
+				<td th:text="${temp.product.productdesc}" />
+				<td th:text="${temp.quantity}" />
+				<td class = "dollars" th:text="${temp.product.unitprice}" />
+				<td class = "dollars" th:text="${temp.quantity * temp.product.unitprice}" />
+				<td th:text="${temp.dateoforder}"></td>
+			</tr> 
+		</th:block>		
+		</tbody>		
+	</table>
+	
+	<a th:href="@{/list}">Back to Customers</a>
+</div>	
+</body>
+</html>
+
+
+
