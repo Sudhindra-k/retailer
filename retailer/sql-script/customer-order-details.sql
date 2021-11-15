@@ -41,7 +41,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1,'John','9998880000','john@xyz.com','xyz',_binary ''),(2,'Mark','8899980000','mark@xyz.com','zyx',_binary ''),(3,'Mike','102030000','mike@xyz.com','yzx',_binary ''),(4,'Sam','1112220000','sam@xyz.com','xzy',_binary ''),(5,'Gwen','1110002222','gwen@xyz.com','zxy',_binary '');
+INSERT INTO `customer` VALUES (1,'John','9998880000','john@xyz.com','NewJersey',_binary ''),(2,'Mark','8899980000','mark@xyz.com','OFallon',_binary ''),(3,'Mike','102030000','mike@xyz.com','StLouis',_binary ''),(4,'Sam','1112220000','sam@xyz.com','Texas',_binary ''),(5,'Gwen','1110002222','gwen@xyz.com','Chesterfield',_binary '');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
